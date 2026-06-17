@@ -170,6 +170,20 @@ h3,
   }
 }
 
+@keyframes vibeGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 16px rgba(216, 255, 89, 0.15),
+      0 0 32px rgba(216, 255, 89, 0.08);
+  }
+  50% {
+    text-shadow:
+      0 0 24px rgba(216, 255, 89, 0.55),
+      0 0 48px rgba(216, 255, 89, 0.25),
+      0 0 72px rgba(255, 90, 60, 0.12);
+  }
+}
+
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.4; transform: scaleY(0.6); }
   50% { opacity: 1; transform: scaleY(1); }
@@ -199,6 +213,20 @@ h3,
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero__title em,
+  .hero__vibe {
+    animation: none;
+  }
+
+  .hero__photo-wrap {
+    transform: rotate(1.5deg);
+    will-change: auto;
+  }
+
+  .hero__photo img {
+    will-change: auto;
   }
 }
 
@@ -427,14 +455,17 @@ h3,
   margin-bottom: 28px;
 }
 
-.hero__title em {
+.hero__title em,
+.hero__vibe {
   font-style: normal;
   position: relative;
   display: inline-block;
   color: var(--accent);
+  animation: vibeGlow 3.2s ease-in-out infinite;
 }
 
-.hero__title em::after {
+.hero__title em::after,
+.hero__vibe::after {
   content: "";
   position: absolute;
   left: -2%;
@@ -464,16 +495,32 @@ h3,
   position: relative;
   justify-self: end;
   width: min(100%, 420px);
+  perspective: 900px;
 }
 
 .hero__photo-wrap {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --magnetic-x: 0px;
+  --magnetic-y: 0px;
+  --parallax-y: 0px;
+  --img-parallax-y: 0px;
+  --img-magnetic-x: 0px;
+  --img-magnetic-y: 0px;
+  --img-scale: 1;
+  --base-rotate: 1.5deg;
   position: relative;
-  transform: rotate(1.5deg);
-  transition: transform var(--transition);
+  transform:
+    translate3d(var(--magnetic-x), calc(var(--parallax-y) + var(--magnetic-y)), 0)
+    rotateX(var(--tilt-y))
+    rotateY(var(--tilt-x))
+    rotate(var(--base-rotate));
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.hero__photo-wrap:hover {
-  transform: rotate(0deg);
+.hero__photo-wrap.is-magnetic {
+  transition: transform 0.14s var(--ease-out);
 }
 
 .hero__photo-accent {
@@ -482,7 +529,12 @@ h3,
   border: 1px solid rgba(216, 255, 89, 0.35);
   pointer-events: none;
   z-index: 0;
-  transform: rotate(-2deg);
+  transform: rotate(-2deg) translateZ(-12px);
+  transition: border-color var(--transition);
+}
+
+.hero__photo-wrap.is-active .hero__photo-accent {
+  border-color: rgba(216, 255, 89, 0.6);
 }
 
 .hero__photo {
@@ -531,11 +583,14 @@ h3,
   object-position: center 12%;
   display: block;
   filter: contrast(1.08) saturate(0.82) brightness(0.88);
-  transition: transform 0.6s var(--ease-out), filter var(--transition);
+  transform:
+    translate3d(var(--img-magnetic-x), calc(var(--img-parallax-y) + var(--img-magnetic-y)), 0)
+    scale(var(--img-scale));
+  transition: filter var(--transition);
+  will-change: transform;
 }
 
-.hero__photo-wrap:hover .hero__photo img {
-  transform: scale(1.03);
+.hero__photo-wrap.is-active .hero__photo img {
   filter: contrast(1.1) saturate(0.9) brightness(0.92);
 }
 
