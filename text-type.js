@@ -198,9 +198,9 @@ function initHeroTextType() {
   }
 
   return new TextType(el, {
-    typingSpeed: 75,
-    deletingSpeed: 50,
-    pauseDuration: 1500,
+    typingSpeed: 98,
+    deletingSpeed: 65,
+    pauseDuration: 1800,
     initialDelay: 500,
     loop: true,
     showCursor: true,
