@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="text-type.css">
   <link rel="stylesheet" href="target-cursor.css">
+  <link rel="stylesheet" href="reviews-stack.css">
 </head>
 <body>
   <div class="bg-layer" aria-hidden="true">
@@ -26,6 +27,7 @@
         <a href="#about">Обо мне</a>
         <a href="#skills">Услуги</a>
         <a href="#projects">Проекты</a>
+        <a href="#reviews">Отзывы</a>
         <a href="#contact">Контакты</a>
       </nav>
       <a href="#contact" class="btn btn--sm btn--outline">Связаться</a>
@@ -330,6 +332,99 @@
       </div>
     </section>
 
+    <!-- Reviews -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section__header section__header--split">
+          <div>
+            <span class="section__label">Отзывы</span>
+            <h2 class="section__title">Что говорят после запуска</h2>
+            <p class="reviews-section__intro">Не просто «сделали сайт», а собрали подачу, которую хочется показывать и пересылать.</p>
+          </div>
+          <span class="section__index">08</span>
+        </div>
+      </div>
+
+      <div class="reviews-scroll" data-reviews-scroll>
+        <div class="reviews-scroll__sticky">
+          <div class="reviews-stack" data-reviews-stack>
+            <article class="review-card" data-review-card aria-labelledby="review-1-name">
+              <div class="review-card__body">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                  <span class="review-stars__icon" aria-hidden="true">★★★★★</span>
+                </div>
+                <blockquote class="review-card__quote">
+                  С первого экрана было понятно: это не шаблон. Сайт наконец начал передавать мой стиль, а не просто «быть в интернете».
+                </blockquote>
+              </div>
+              <footer class="review-card__author">
+                <div class="review-avatar" aria-hidden="true">АК</div>
+                <div>
+                  <cite class="review-card__name" id="review-1-name">Алина К.</cite>
+                  <p class="review-card__role">эксперт, личный бренд</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="review-card" data-review-card aria-labelledby="review-2-name">
+              <div class="review-card__body">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                  <span class="review-stars__icon" aria-hidden="true">★★★★★</span>
+                </div>
+                <blockquote class="review-card__quote">
+                  Быстро, но не вслепую. Структура, тексты и визуал сложились в цельную историю — лендинг стал продавать аккуратнее и увереннее.
+                </blockquote>
+              </div>
+              <footer class="review-card__author">
+                <div class="review-avatar review-avatar--coral" aria-hidden="true">МR</div>
+                <div>
+                  <cite class="review-card__name" id="review-2-name">Максим R.</cite>
+                  <p class="review-card__role">основатель digital-продукта</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="review-card" data-review-card aria-labelledby="review-3-name">
+              <div class="review-card__body">
+                <div class="review-stars" aria-label="Оценка 4.5 из 5">
+                  <span class="review-stars__icon" aria-hidden="true">★★★★<span class="review-stars__half">★</span></span>
+                </div>
+                <blockquote class="review-card__quote">
+                  Понравился баланс эстетики и логики. Страница выглядит дороже, чем ощущается по бюджету — и это редкость.
+                </blockquote>
+              </div>
+              <footer class="review-card__author">
+                <div class="review-avatar review-avatar--lime" aria-hidden="true">ЮS</div>
+                <div>
+                  <cite class="review-card__name" id="review-3-name">Юлия S.</cite>
+                  <p class="review-card__role">креатор, портфолио</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="review-card" data-review-card aria-labelledby="review-4-name">
+              <div class="review-card__body">
+                <div class="review-stars" aria-label="Оценка 5 из 5">
+                  <span class="review-stars__icon" aria-hidden="true">★★★★★</span>
+                </div>
+                <blockquote class="review-card__quote">
+                  Пришли за вёрсткой, получили упаковку. Помогла собрать смысл, подачу и финальный вид — без бесконечных кругов правок.
+                </blockquote>
+              </div>
+              <footer class="review-card__author">
+                <div class="review-avatar review-avatar--neutral" aria-hidden="true">АV</div>
+                <div>
+                  <cite class="review-card__name" id="review-4-name">Анна V.</cite>
+                  <p class="review-card__role">студия, promo-страница</p>
+                </div>
+              </footer>
+            </article>
+          </div>
+          <p class="reviews-scroll__hint" aria-hidden="true">Листай вниз — следующий отзыв</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Quote -->
     <section class="quote-section">
       <div class="container">
@@ -362,7 +457,7 @@
             <span class="section__label">Контакты</span>
             <h2 class="section__title">Связаться</h2>
           </div>
-          <span class="section__index">08</span>
+          <span class="section__index">09</span>
         </div>
         <div class="contacts">
           <a href="https://t.me/NeuroMasheri" class="contact-link reveal-on-scroll" target="_blank" rel="noopener noreferrer">
@@ -387,6 +482,7 @@
 
   <script src="text-type.js"></script>
   <script src="target-cursor.js"></script>
+  <script src="reviews-stack.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

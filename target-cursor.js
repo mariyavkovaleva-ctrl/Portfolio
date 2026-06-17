@@ -341,7 +341,7 @@ function initTargetCursor(options = {}) {
 
   markCursorTargets(
     options.autoTargets ||
-      ".btn, .nav a, .logo, .contact-link, .project, .card, .badge, .footer__top, .cta, .step"
+      ".btn, .nav a, .logo, .contact-link, .project, .card, .badge, .footer__top, .cta, .step, .review-card"
   );
 
   return new TargetCursor({

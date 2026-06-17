@@ -9,6 +9,10 @@
     initTargetCursor();
   }
 
+  if (typeof initReviewsStack === "function") {
+    initReviewsStack();
+  }
+
   if (prefersReduced) {
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
   } else {
