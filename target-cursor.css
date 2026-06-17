@@ -1,0 +1,87 @@
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 10000;
+  will-change: transform;
+}
+
+.target-cursor-wrapper.is-spinning {
+  animation: targetCursorSpin var(--cursor-spin-duration, 2s) linear infinite;
+}
+
+.target-cursor-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  box-shadow: 0 0 14px rgba(216, 255, 89, 0.45);
+  transition: transform 0.25s var(--ease-out, ease);
+}
+
+.target-cursor-corner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent);
+  will-change: transform;
+  box-shadow: 0 0 10px rgba(216, 255, 89, 0.15);
+}
+
+.corner-tl {
+  transform: translate(calc(-50% - 18px), calc(-50% - 18px));
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-tr {
+  transform: translate(calc(-50% + 6px), calc(-50% - 18px));
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-br {
+  transform: translate(calc(-50% + 6px), calc(-50% + 6px));
+  border-left: none;
+  border-top: none;
+}
+
+.corner-bl {
+  transform: translate(calc(-50% - 18px), calc(-50% + 6px));
+  border-right: none;
+  border-top: none;
+}
+
+body.has-target-cursor,
+body.has-target-cursor a,
+body.has-target-cursor button {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 768px), (pointer: coarse) {
+  .target-cursor-wrapper {
+    display: none !important;
+  }
+
+  body.has-target-cursor,
+  body.has-target-cursor a,
+  body.has-target-cursor button {
+    cursor: auto !important;
+  }
+}
+
+@keyframes targetCursorSpin {
+  to {
+    rotate: 360deg;
+  }
+}

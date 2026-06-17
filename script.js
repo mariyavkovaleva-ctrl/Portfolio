@@ -1,6 +1,14 @@
 (function () {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  if (typeof initHeroTextType === "function") {
+    initHeroTextType();
+  }
+
+  if (typeof initTargetCursor === "function") {
+    initTargetCursor();
+  }
+
   if (prefersReduced) {
     document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
   } else {

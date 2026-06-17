@@ -453,6 +453,11 @@ h3,
 .hero__title {
   max-width: 920px;
   margin-bottom: 28px;
+  min-height: clamp(120px, 18vw, 220px);
+}
+
+.hero__title-type {
+  display: inline;
 }
 
 .hero__title em,
